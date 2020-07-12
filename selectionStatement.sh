@@ -1,57 +1,31 @@
-#!/bin/bash -x
-number1=${RANDOM:0:3}
-number2=${RANDOM:0:3}
-number3=${RANDOM:0:3}
-number4=${RANDOM:0:3}
-number5=${RANDOM:0:3}
-if [ $number1 -gt $number2 ]
+#!/bin/bash
+read -p "enter a date : " date
+echo "enter month number"
+read -p "Example JANUARY=1 | FEBRUARY=2 ..... | DECEMBER=12 : " month
+if [ "$month" -eq 3 ] || [ "$month" -eq 4 ] || [ "$month" -eq 5 ] || [ "$month" -eq 6 ]
 then
-        max=$number1
-else
-        max=$number2
-fi
-if [ $max -gt $number3 ]
-then
-        max=$max
-else
-        max=$number3
-fi
-if [ $max -gt $number4 ]
-then
-        max=$max
-else
-        max=$number4
-fi
-if [ $max -gt $number5 ]
-then
-        max=$max
-else
-        max=$number5
-fi
-echo "the maximum number is $max"
+        if [ "$month" -eq 3 ] || [ "$month" -eq 6 ]
+        then
+                if [ "$month" -eq 3 ]
+                then
+                        if [ "$date" -gt "20" ]
+                        then
+                                echo "Given date IS in between March 20 and Jun 20 "
+                        else
+                                echo "Given date IS NOT in between March 20 and Jun 20 "
+                        fi
+                else
+                        if [ "$date" -lt "20" ]
+                        then
+                                echo "Given date IS in between March 20 and Jun 20 "
+                        else
+                                echo "Given date IS NOT in between March 20 and Jun 20 "
+                        fi
+                fi
 
-if [ $number1 -lt $number2 ]
-then
-        min=$number1
+        else
+                echo "Given date IS in between March 20 and Jun 20 "
+        fi
 else
-        min=$number2
+        echo "Given date IS NOT in between March 20 and Jun 20 "
 fi
-if [ $min -lt $number3 ]
-then
-        min=$min
-else
-        min=$number3
-fi
-if [ $min -lt $number4 ]
-then
-        min=$min
-else
-        min=$number4
-fi
-if [ $min -lt $number5 ]
-then
-        min=$min
-else
-        min=$number5
-fi
-echo "the minimum number is $min"
